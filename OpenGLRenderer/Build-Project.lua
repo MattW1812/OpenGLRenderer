@@ -27,6 +27,7 @@ project "OpenGLRenderer"
         "Source",
         "Vendor/GLFW/include",
         "Vendor/GLEW/include",
+        "Vendor/GLM",
     }
 
     libdirs

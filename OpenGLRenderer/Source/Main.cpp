@@ -2,6 +2,7 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
 
 #include <stdio.h>
 
@@ -26,7 +27,7 @@ int main(void)
 
 	const u32 width = 1280;
 	const u32 height = 720;
-	GLFWwindow* window = glfwCreateWindow(width, height, "Hello World", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(width, height, "OpenGL Renderer", NULL, NULL);
 	if (!window)
 	{
 		fprintf(stderr, "[ERROR]: Failed to create window\n");
@@ -52,7 +53,7 @@ int main(void)
 
 	u32 vao;
 	glGenVertexArrays(1, &vao);
-	//glBindVertexArray(vao);
+	glBindVertexArray(vao);
 
 	f32 vertices[] = {
 		 0.0f,  0.5f,  0.0f,
@@ -112,14 +113,14 @@ int main(void)
 	}
 
 	const char* fragmentShaderSrc = R"(
-			#version 330 core
+		#version 330 core
 
-			out vec4 o_FragColor;
+		out vec4 o_FragColor;
 
-			void main()
-			{
-				o_FragColor = vec4(1.0);
-			}
+		void main()
+		{
+			o_FragColor = vec4(1.0);
+		}
 	)";
 
 	i32 fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
